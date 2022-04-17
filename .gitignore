@@ -1,0 +1,6 @@
+grafana_data/
+zbx_data/
+zbx_data*/
+.*CERT_FILE
+.*KEY_FILE
+.*CA_FILE

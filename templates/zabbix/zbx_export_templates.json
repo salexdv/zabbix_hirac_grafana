@@ -1,0 +1,1364 @@
+{
+    "zabbix_export": {
+        "version": "5.2",
+        "date": "2022-04-16T19:01:21Z",
+        "groups": [
+            {
+                "name": "1C Servers"
+            }
+        ],
+        "templates": [
+            {
+                "template": "1C Cluster",
+                "name": "1C Cluster",
+                "groups": [
+                    {
+                        "name": "1C Servers"
+                    }
+                ],
+                "applications": [
+                    {
+                        "name": "1c.cluster.info"
+                    },
+                    {
+                        "name": "1\u0441.cluster.infobases"
+                    },
+                    {
+                        "name": "1\u0441.cluster.processes"
+                    },
+                    {
+                        "name": "1\u0441.cluster.sessions"
+                    },
+                    {
+                        "name": "HiRAC healthcheck"
+                    }
+                ],
+                "items": [
+                    {
+                        "name": "1\u0441.cluster.infobases",
+                        "type": "HTTP_AGENT",
+                        "key": "infobase[{$HIRAC_ADDRESS},list]",
+                        "history": "1d",
+                        "trends": "0",
+                        "value_type": "TEXT",
+                        "description": "JSON \u0441\u043e \u0441\u043f\u0438\u0441\u043a\u043e\u043c \u0432\u0441\u0435\u0445 \u0438\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u043e\u043d\u043d\u044b\u0445 \u0431\u0430\u0437",
+                        "applications": [
+                            {
+                                "name": "1\u0441.cluster.infobases"
+                            }
+                        ],
+                        "timeout": "30s",
+                        "url": "http://{$HIRAC_ADDRESS}/infobase/list",
+                        "query_fields": [
+                            {
+                                "name": "field",
+                                "value": "infobase"
+                            },
+                            {
+                                "name": "field",
+                                "value": "name"
+                            },
+                            {
+                                "name": "field",
+                                "value": "descr"
+                            },
+                            {
+                                "name": "field",
+                                "value": "cluster"
+                            },
+                            {
+                                "name": "field",
+                                "value": "cluster-label"
+                            },
+                            {
+                                "name": "field",
+                                "value": "dbms-size-on-disk"
+                            },
+                            {
+                                "name": "field",
+                                "value": "dbms-data-size"
+                            },
+                            {
+                                "name": "field",
+                                "value": "dbms-index-size"
+                            },
+                            {
+                                "name": "field",
+                                "value": "count"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "1\u0441.cluster.processes",
+                        "type": "HTTP_AGENT",
+                        "key": "process[{$HIRAC_ADDRESS},list]",
+                        "history": "1d",
+                        "trends": "0",
+                        "value_type": "TEXT",
+                        "description": "JSON \u0441\u043e \u0441\u043f\u0438\u0441\u043a\u043e\u043c \u0432\u0441\u0435\u0445 \u0440\u0430\u0431\u043e\u0447\u0438\u0445 \u043f\u0440\u043e\u0446\u0435\u0441\u0441\u043e\u0432",
+                        "applications": [
+                            {
+                                "name": "1\u0441.cluster.processes"
+                            }
+                        ],
+                        "timeout": "30s",
+                        "url": "http://{$HIRAC_ADDRESS}/process/list",
+                        "query_fields": [
+                            {
+                                "name": "field",
+                                "value": "process"
+                            },
+                            {
+                                "name": "field",
+                                "value": "process-label"
+                            },
+                            {
+                                "name": "field",
+                                "value": "host"
+                            },
+                            {
+                                "name": "field",
+                                "value": "port"
+                            },
+                            {
+                                "name": "field",
+                                "value": "pid"
+                            },
+                            {
+                                "name": "field",
+                                "value": "is-enable"
+                            },
+                            {
+                                "name": "field",
+                                "value": "capacity"
+                            },
+                            {
+                                "name": "field",
+                                "value": "connections"
+                            },
+                            {
+                                "name": "field",
+                                "value": "memory-size"
+                            },
+                            {
+                                "name": "field",
+                                "value": "memory-excess-time"
+                            },
+                            {
+                                "name": "field",
+                                "value": "avg-call-time"
+                            },
+                            {
+                                "name": "field",
+                                "value": "available-perfomance"
+                            },
+                            {
+                                "name": "field",
+                                "value": "cluster"
+                            },
+                            {
+                                "name": "field",
+                                "value": "cluster-label"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "1\u0441.cluster.sessions",
+                        "type": "HTTP_AGENT",
+                        "key": "session[{$HIRAC_ADDRESS},list]",
+                        "history": "1d",
+                        "trends": "0",
+                        "value_type": "TEXT",
+                        "description": "JSON \u0441\u043e \u0441\u043f\u0438\u0441\u043a\u043e\u043c \u0432\u0441\u0435\u0445 \u0441\u0435\u0430\u043d\u0441\u043e\u0432",
+                        "applications": [
+                            {
+                                "name": "1\u0441.cluster.sessions"
+                            }
+                        ],
+                        "timeout": "30s",
+                        "url": "http://{$HIRAC_ADDRESS}/session/list",
+                        "query_fields": [
+                            {
+                                "name": "field",
+                                "value": "session"
+                            },
+                            {
+                                "name": "field",
+                                "value": "session-id"
+                            },
+                            {
+                                "name": "field",
+                                "value": "infobase"
+                            },
+                            {
+                                "name": "field",
+                                "value": "infobase-label"
+                            },
+                            {
+                                "name": "field",
+                                "value": "app-id"
+                            },
+                            {
+                                "name": "field",
+                                "value": "started-at"
+                            },
+                            {
+                                "name": "field",
+                                "value": "duration"
+                            },
+                            {
+                                "name": "field",
+                                "value": "blocked-by-dbms"
+                            },
+                            {
+                                "name": "field",
+                                "value": "db-proc-took"
+                            },
+                            {
+                                "name": "field",
+                                "value": "duration-current"
+                            },
+                            {
+                                "name": "field",
+                                "value": "duration-current-dbms"
+                            },
+                            {
+                                "name": "field",
+                                "value": "duration-last-5min"
+                            },
+                            {
+                                "name": "field",
+                                "value": "duration-last-5min-dbms"
+                            },
+                            {
+                                "name": "field",
+                                "value": "memory-current"
+                            },
+                            {
+                                "name": "field",
+                                "value": "memory-total"
+                            },
+                            {
+                                "name": "field",
+                                "value": "cpu-time-current"
+                            },
+                            {
+                                "name": "field",
+                                "value": "cpu-time-5min-last"
+                            },
+                            {
+                                "name": "field",
+                                "value": "cluster-label"
+                            },
+                            {
+                                "name": "field",
+                                "value": "count"
+                            }
+                        ]
+                    }
+                ],
+                "discovery_rules": [
+                    {
+                        "name": "get cluster",
+                        "type": "HTTP_AGENT",
+                        "key": "cluster[{$HIRAC_ADDRESS}]",
+                        "lifetime": "3600",
+                        "item_prototypes": [
+                            {
+                                "name": "1C cluster {#CLUSTER_LABEL} infobase count",
+                                "type": "HTTP_AGENT",
+                                "key": "cluster[{#CLUSTER_LABEL},infobase-count]",
+                                "history": "30d",
+                                "description": "\u041a\u043e\u043b\u0438\u0447\u0435\u0441\u0442\u0432\u043e \u0438\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u043e\u043d\u043d\u044b\u0445 \u0431\u0430\u0437",
+                                "applications": [
+                                    {
+                                        "name": "1c.cluster.info"
+                                    }
+                                ],
+                                "application_prototypes": [
+                                    {
+                                        "name": "1C cluster {#CLUSTER_LABEL}"
+                                    }
+                                ],
+                                "preprocessing": [
+                                    {
+                                        "type": "REGEX",
+                                        "parameters": [
+                                            "c1_infobase_count=([0-9]+)",
+                                            "0\\1"
+                                        ]
+                                    }
+                                ],
+                                "timeout": "30s",
+                                "url": "http://{$HIRAC_ADDRESS}/counter/infobase/count",
+                                "query_fields": [
+                                    {
+                                        "name": "filter_cluster-label",
+                                        "value": "{#CLUSTER_LABEL}"
+                                    },
+                                    {
+                                        "name": "dim",
+                                        "value": "_no"
+                                    },
+                                    {
+                                        "name": "aggregate",
+                                        "value": "sum"
+                                    },
+                                    {
+                                        "name": "format",
+                                        "value": "plain"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "1C cluster {#CLUSTER_LABEL} process count",
+                                "type": "HTTP_AGENT",
+                                "key": "cluster[{#CLUSTER_LABEL},process-count]",
+                                "history": "30d",
+                                "description": "\u041a\u043e\u043b\u0438\u0447\u0435\u0441\u0442\u0432\u043e \u0440\u0430\u0431\u043e\u0447\u0438\u0445 \u043f\u0440\u043e\u0446\u0435\u0441\u0441\u043e\u0432",
+                                "applications": [
+                                    {
+                                        "name": "1c.cluster.info"
+                                    }
+                                ],
+                                "application_prototypes": [
+                                    {
+                                        "name": "1C cluster {#CLUSTER_LABEL}"
+                                    }
+                                ],
+                                "preprocessing": [
+                                    {
+                                        "type": "REGEX",
+                                        "parameters": [
+                                            "c1_process_count=([0-9]+)",
+                                            "0\\1"
+                                        ]
+                                    }
+                                ],
+                                "timeout": "30s",
+                                "url": "http://{$HIRAC_ADDRESS}/counter/process/count",
+                                "query_fields": [
+                                    {
+                                        "name": "filter_cluster-label",
+                                        "value": "{#CLUSTER_LABEL}"
+                                    },
+                                    {
+                                        "name": "dim",
+                                        "value": "_no"
+                                    },
+                                    {
+                                        "name": "aggregate",
+                                        "value": "sum"
+                                    },
+                                    {
+                                        "name": "format",
+                                        "value": "plain"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "1C cluster {#CLUSTER_LABEL} process memory",
+                                "type": "HTTP_AGENT",
+                                "key": "cluster[{#CLUSTER_LABEL},process-memory-size]",
+                                "history": "30d",
+                                "units": "B",
+                                "description": "\u041e\u0431\u044a\u0435\u043c \u043f\u0430\u043c\u044f\u0442\u0438 \u0432\u0441\u0435\u0445 \u0440\u0430\u0431\u043e\u0447\u0438\u0445 \u043f\u0440\u043e\u0446\u0435\u0441\u0441\u043e\u0432",
+                                "applications": [
+                                    {
+                                        "name": "1c.cluster.info"
+                                    }
+                                ],
+                                "application_prototypes": [
+                                    {
+                                        "name": "1C cluster {#CLUSTER_LABEL}"
+                                    }
+                                ],
+                                "preprocessing": [
+                                    {
+                                        "type": "REGEX",
+                                        "parameters": [
+                                            "c1_process_memory-size=([0-9]+)",
+                                            "0\\1"
+                                        ]
+                                    },
+                                    {
+                                        "type": "MULTIPLIER",
+                                        "parameters": [
+                                            "1024"
+                                        ]
+                                    }
+                                ],
+                                "timeout": "15s",
+                                "url": "http://{$HIRAC_ADDRESS}/counter/process/memory-size",
+                                "query_fields": [
+                                    {
+                                        "name": "filter_cluster-label",
+                                        "value": "{#CLUSTER_LABEL}"
+                                    },
+                                    {
+                                        "name": "dim",
+                                        "value": "_no"
+                                    },
+                                    {
+                                        "name": "aggregate",
+                                        "value": "sum"
+                                    },
+                                    {
+                                        "name": "format",
+                                        "value": "plain"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "1C cluster {#CLUSTER_LABEL} server count",
+                                "type": "HTTP_AGENT",
+                                "key": "cluster[{#CLUSTER_LABEL},server-count]",
+                                "delay": "30m",
+                                "history": "30d",
+                                "description": "\u041a\u043e\u043b\u0438\u0447\u0435\u0441\u0442\u0432\u043e \u0441\u0435\u0440\u0432\u0435\u0440\u043e\u0432 \u0432 \u043a\u043b\u0430\u0441\u0442\u0435\u0440\u0435",
+                                "applications": [
+                                    {
+                                        "name": "1c.cluster.info"
+                                    }
+                                ],
+                                "application_prototypes": [
+                                    {
+                                        "name": "1C cluster {#CLUSTER_LABEL}"
+                                    }
+                                ],
+                                "preprocessing": [
+                                    {
+                                        "type": "REGEX",
+                                        "parameters": [
+                                            "c1_server_count=([0-9]+)",
+                                            "0\\1"
+                                        ]
+                                    }
+                                ],
+                                "timeout": "30s",
+                                "url": "http://{$HIRAC_ADDRESS}/counter/server/count",
+                                "query_fields": [
+                                    {
+                                        "name": "filter_cluster-label",
+                                        "value": "{#CLUSTER_LABEL}"
+                                    },
+                                    {
+                                        "name": "dim",
+                                        "value": "_no"
+                                    },
+                                    {
+                                        "name": "aggregate",
+                                        "value": "sum"
+                                    },
+                                    {
+                                        "name": "format",
+                                        "value": "plain"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "1C cluster {#CLUSTER_LABEL} session count",
+                                "type": "HTTP_AGENT",
+                                "key": "cluster[{#CLUSTER_LABEL},session-count]",
+                                "history": "30d",
+                                "description": "\u041a\u043e\u043b\u0438\u0447\u0435\u0441\u0442\u0432\u043e \u0441\u0435\u0430\u043d\u0441\u043e\u0432",
+                                "applications": [
+                                    {
+                                        "name": "1c.cluster.info"
+                                    }
+                                ],
+                                "application_prototypes": [
+                                    {
+                                        "name": "1C cluster {#CLUSTER_LABEL}"
+                                    }
+                                ],
+                                "preprocessing": [
+                                    {
+                                        "type": "REGEX",
+                                        "parameters": [
+                                            "c1_session_count=([0-9]+)",
+                                            "0\\1"
+                                        ]
+                                    }
+                                ],
+                                "timeout": "30s",
+                                "url": "http://{$HIRAC_ADDRESS}/counter/session/count",
+                                "query_fields": [
+                                    {
+                                        "name": "filter_cluster-label",
+                                        "value": "{#CLUSTER_LABEL}"
+                                    },
+                                    {
+                                        "name": "dim",
+                                        "value": "_no"
+                                    },
+                                    {
+                                        "name": "aggregate",
+                                        "value": "sum"
+                                    },
+                                    {
+                                        "name": "format",
+                                        "value": "plain"
+                                    }
+                                ]
+                            }
+                        ],
+                        "timeout": "30s",
+                        "url": "http://{$HIRAC_ADDRESS}/cluster/list",
+                        "query_fields": [
+                            {
+                                "name": "field",
+                                "value": "cluster-label"
+                            },
+                            {
+                                "name": "field",
+                                "value": "cluster-host"
+                            },
+                            {
+                                "name": "field",
+                                "value": "cluster-port"
+                            },
+                            {
+                                "name": "field",
+                                "value": "agent"
+                            },
+                            {
+                                "name": "field",
+                                "value": "host"
+                            },
+                            {
+                                "name": "field",
+                                "value": "port"
+                            },
+                            {
+                                "name": "field",
+                                "value": "name"
+                            }
+                        ],
+                        "lld_macro_paths": [
+                            {
+                                "lld_macro": "{#CLUSTER_HOST}",
+                                "path": "$.host"
+                            },
+                            {
+                                "lld_macro": "{#CLUSTER_LABEL}",
+                                "path": "$[\"cluster-label\"]"
+                            },
+                            {
+                                "lld_macro": "{#CLUSTER_NAME}",
+                                "path": "$.name"
+                            },
+                            {
+                                "lld_macro": "{#CLUSTER_PORT}",
+                                "path": "$.port"
+                            }
+                        ],
+                        "preprocessing": [
+                            {
+                                "type": "DISCARD_UNCHANGED_HEARTBEAT",
+                                "parameters": [
+                                    "10"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "get infobase",
+                        "type": "DEPENDENT",
+                        "key": "infobase[{#CLUSTER_LABEL}:{#NAME}]",
+                        "delay": "0",
+                        "lifetime": "10d",
+                        "item_prototypes": [
+                            {
+                                "name": "1C infobase {#CLUSTER_LABEL}:{#NAME} blocked-by-dbms",
+                                "type": "DEPENDENT",
+                                "key": "infobase[{#CLUSTER_LABEL}:{#NAME},blocked-by-dbms]",
+                                "delay": "0",
+                                "history": "30d",
+                                "description": "\u0417\u0430\u0431\u043b\u043e\u043a\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0421\u0423\u0411\u0414",
+                                "applications": [
+                                    {
+                                        "name": "1\u0441.cluster.infobases"
+                                    }
+                                ],
+                                "application_prototypes": [
+                                    {
+                                        "name": "1C cluster {#CLUSTER_LABEL} infobases"
+                                    },
+                                    {
+                                        "name": "1C infobase {#CLUSTER_LABEL}:{#NAME}"
+                                    }
+                                ],
+                                "preprocessing": [
+                                    {
+                                        "type": "JSONPATH",
+                                        "parameters": [
+                                            "$[?(@.infobase== \"{#INFOBASE}\")][\"blocked-by-dbms\"].sum()"
+                                        ]
+                                    }
+                                ],
+                                "master_item": {
+                                    "key": "session[{$HIRAC_ADDRESS},list]"
+                                }
+                            },
+                            {
+                                "name": "1C infobase {#CLUSTER_LABEL}:{#NAME} cpu-time-5min-last",
+                                "type": "DEPENDENT",
+                                "key": "infobase[{#CLUSTER_LABEL}:{#NAME},cpu-time-5min-last]",
+                                "delay": "0",
+                                "history": "30d",
+                                "description": "\u041f\u0440\u043e\u0446\u0435\u0441\u0441\u043e\u0440\u043d\u043e\u0435 \u0432\u0440\u0435\u043c\u044f (5 \u043c\u0438\u043d.)",
+                                "applications": [
+                                    {
+                                        "name": "1\u0441.cluster.infobases"
+                                    }
+                                ],
+                                "application_prototypes": [
+                                    {
+                                        "name": "1C cluster {#CLUSTER_LABEL} infobases"
+                                    },
+                                    {
+                                        "name": "1C infobase {#CLUSTER_LABEL}:{#NAME}"
+                                    }
+                                ],
+                                "preprocessing": [
+                                    {
+                                        "type": "JSONPATH",
+                                        "parameters": [
+                                            "$[?(@.infobase== \"{#INFOBASE}\")][\"cpu-time-5min-last\"].sum()"
+                                        ],
+                                        "error_handler": "CUSTOM_VALUE",
+                                        "error_handler_params": "0"
+                                    }
+                                ],
+                                "master_item": {
+                                    "key": "session[{$HIRAC_ADDRESS},list]"
+                                }
+                            },
+                            {
+                                "name": "1C infobase {#CLUSTER_LABEL}:{#NAME} cpu-time-current",
+                                "type": "DEPENDENT",
+                                "key": "infobase[{#CLUSTER_LABEL}:{#NAME},cpu-time-current]",
+                                "delay": "0",
+                                "history": "30d",
+                                "description": "\u041f\u0440\u043e\u0446\u0435\u0441\u0441\u043e\u0440\u043d\u043e\u0435 \u0432\u0440\u0435\u043c\u044f (\u0442\u0435\u043a\u0443\u0449\u0435\u0435)",
+                                "applications": [
+                                    {
+                                        "name": "1\u0441.cluster.infobases"
+                                    }
+                                ],
+                                "application_prototypes": [
+                                    {
+                                        "name": "1C cluster {#CLUSTER_LABEL} infobases"
+                                    },
+                                    {
+                                        "name": "1C infobase {#CLUSTER_LABEL}:{#NAME}"
+                                    }
+                                ],
+                                "preprocessing": [
+                                    {
+                                        "type": "JSONPATH",
+                                        "parameters": [
+                                            "$[?(@.infobase== \"{#INFOBASE}\")][\"cpu-time-current\"].sum()"
+                                        ]
+                                    }
+                                ],
+                                "master_item": {
+                                    "key": "session[{$HIRAC_ADDRESS},list]"
+                                }
+                            },
+                            {
+                                "name": "1C infobase {#CLUSTER_LABEL}:{#NAME} db-proc-took",
+                                "type": "DEPENDENT",
+                                "key": "infobase[{#CLUSTER_LABEL}:{#NAME},db-proc-took]",
+                                "delay": "0",
+                                "history": "30d",
+                                "description": "\u0417\u0430\u0445\u0432\u0430\u0447\u0435\u043d\u043e \u0421\u0423\u0411\u0414",
+                                "applications": [
+                                    {
+                                        "name": "1\u0441.cluster.infobases"
+                                    }
+                                ],
+                                "application_prototypes": [
+                                    {
+                                        "name": "1C cluster {#CLUSTER_LABEL} infobases"
+                                    },
+                                    {
+                                        "name": "1C infobase {#CLUSTER_LABEL}:{#NAME}"
+                                    }
+                                ],
+                                "preprocessing": [
+                                    {
+                                        "type": "JSONPATH",
+                                        "parameters": [
+                                            "$[?(@.infobase== \"{#INFOBASE}\")][\"db-proc-took\"].sum()"
+                                        ]
+                                    }
+                                ],
+                                "master_item": {
+                                    "key": "session[{$HIRAC_ADDRESS},list]"
+                                }
+                            },
+                            {
+                                "name": "1C infobase {#CLUSTER_LABEL}:{#NAME} dbms-data-size",
+                                "type": "DEPENDENT",
+                                "key": "infobase[{#CLUSTER_LABEL}:{#NAME},dbms-data-size]",
+                                "delay": "0",
+                                "history": "30d",
+                                "value_type": "FLOAT",
+                                "units": "B",
+                                "description": "\u0420\u0430\u0437\u043c\u0435\u0440 \u0434\u0430\u043d\u043d\u044b\u0445",
+                                "applications": [
+                                    {
+                                        "name": "1\u0441.cluster.infobases"
+                                    }
+                                ],
+                                "application_prototypes": [
+                                    {
+                                        "name": "1C cluster {#CLUSTER_LABEL} infobases"
+                                    },
+                                    {
+                                        "name": "1C infobase {#CLUSTER_LABEL}:{#NAME}"
+                                    }
+                                ],
+                                "preprocessing": [
+                                    {
+                                        "type": "JSONPATH",
+                                        "parameters": [
+                                            "$[?(@.infobase== \"{#INFOBASE}\")][\"dbms-data-size\"]"
+                                        ],
+                                        "error_handler": "CUSTOM_VALUE",
+                                        "error_handler_params": "0"
+                                    }
+                                ],
+                                "master_item": {
+                                    "key": "infobase[{$HIRAC_ADDRESS},list]"
+                                }
+                            },
+                            {
+                                "name": "1C infobase {#CLUSTER_LABEL}:{#NAME} dbms-index-size",
+                                "type": "DEPENDENT",
+                                "key": "infobase[{#CLUSTER_LABEL}:{#NAME},dbms-index-size]",
+                                "delay": "0",
+                                "history": "30d",
+                                "value_type": "FLOAT",
+                                "units": "B",
+                                "description": "\u0420\u0430\u0437\u043c\u0435\u0440 \u0438\u043d\u0434\u0435\u043a\u0441\u043e\u0432",
+                                "applications": [
+                                    {
+                                        "name": "1\u0441.cluster.infobases"
+                                    }
+                                ],
+                                "application_prototypes": [
+                                    {
+                                        "name": "1C cluster {#CLUSTER_LABEL} infobases"
+                                    },
+                                    {
+                                        "name": "1C infobase {#CLUSTER_LABEL}:{#NAME}"
+                                    }
+                                ],
+                                "preprocessing": [
+                                    {
+                                        "type": "JSONPATH",
+                                        "parameters": [
+                                            "$[?(@.infobase== \"{#INFOBASE}\")][\"dbms-index-size\"]"
+                                        ],
+                                        "error_handler": "CUSTOM_VALUE",
+                                        "error_handler_params": "0"
+                                    }
+                                ],
+                                "master_item": {
+                                    "key": "infobase[{$HIRAC_ADDRESS},list]"
+                                }
+                            },
+                            {
+                                "name": "1C infobase {#CLUSTER_LABEL}:{#NAME} dbms-size-on-disk",
+                                "type": "DEPENDENT",
+                                "key": "infobase[{#CLUSTER_LABEL}:{#NAME},dbms-size-on-disk]",
+                                "delay": "0",
+                                "history": "30d",
+                                "value_type": "FLOAT",
+                                "units": "B",
+                                "description": "\u0420\u0430\u0437\u043c\u0435\u0440 \u0431\u0430\u0437\u044b \u0434\u0430\u043d\u043d\u044b\u0445",
+                                "applications": [
+                                    {
+                                        "name": "1\u0441.cluster.infobases"
+                                    }
+                                ],
+                                "application_prototypes": [
+                                    {
+                                        "name": "1C cluster {#CLUSTER_LABEL} infobases"
+                                    },
+                                    {
+                                        "name": "1C infobase {#CLUSTER_LABEL}:{#NAME}"
+                                    }
+                                ],
+                                "preprocessing": [
+                                    {
+                                        "type": "JSONPATH",
+                                        "parameters": [
+                                            "$[?(@.infobase== \"{#INFOBASE}\")][\"dbms-size-on-disk\"]"
+                                        ],
+                                        "error_handler": "CUSTOM_VALUE",
+                                        "error_handler_params": "0"
+                                    }
+                                ],
+                                "master_item": {
+                                    "key": "infobase[{$HIRAC_ADDRESS},list]"
+                                }
+                            },
+                            {
+                                "name": "1C infobase {#CLUSTER_LABEL}:{#NAME} duration-current-dbms",
+                                "type": "DEPENDENT",
+                                "key": "infobase[{#CLUSTER_LABEL}:{#NAME},duration-current-dbms]",
+                                "delay": "0",
+                                "history": "30d",
+                                "description": "\u0412\u0440\u0435\u043c\u044f \u0432\u044b\u0437\u043e\u0432\u0430 \u0421\u0423\u0411\u0414 (\u0442\u0435\u043a\u0443\u0449\u0435\u0435)",
+                                "applications": [
+                                    {
+                                        "name": "1\u0441.cluster.infobases"
+                                    }
+                                ],
+                                "application_prototypes": [
+                                    {
+                                        "name": "1C cluster {#CLUSTER_LABEL} infobases"
+                                    },
+                                    {
+                                        "name": "1C infobase {#CLUSTER_LABEL}:{#NAME}"
+                                    }
+                                ],
+                                "preprocessing": [
+                                    {
+                                        "type": "JSONPATH",
+                                        "parameters": [
+                                            "$[?(@.infobase== \"{#INFOBASE}\")][\"duration-current-dbms\"].sum()"
+                                        ],
+                                        "error_handler": "CUSTOM_VALUE",
+                                        "error_handler_params": "0"
+                                    }
+                                ],
+                                "master_item": {
+                                    "key": "session[{$HIRAC_ADDRESS},list]"
+                                }
+                            },
+                            {
+                                "name": "1C infobase {#CLUSTER_LABEL}:{#NAME} duration-current",
+                                "type": "DEPENDENT",
+                                "key": "infobase[{#CLUSTER_LABEL}:{#NAME},duration-current]",
+                                "delay": "0",
+                                "history": "30d",
+                                "description": "\u0412\u0440\u0435\u043c\u044f \u0432\u044b\u0437\u043e\u0432\u0430 (\u0442\u0435\u043a\u0443\u0449\u0435\u0435)",
+                                "applications": [
+                                    {
+                                        "name": "1\u0441.cluster.infobases"
+                                    }
+                                ],
+                                "application_prototypes": [
+                                    {
+                                        "name": "1C cluster {#CLUSTER_LABEL} infobases"
+                                    },
+                                    {
+                                        "name": "1C infobase {#CLUSTER_LABEL}:{#NAME}"
+                                    }
+                                ],
+                                "preprocessing": [
+                                    {
+                                        "type": "JSONPATH",
+                                        "parameters": [
+                                            "$[?(@.infobase== \"{#INFOBASE}\")][\"duration-current\"].sum()"
+                                        ],
+                                        "error_handler": "CUSTOM_VALUE",
+                                        "error_handler_params": "0"
+                                    }
+                                ],
+                                "master_item": {
+                                    "key": "session[{$HIRAC_ADDRESS},list]"
+                                }
+                            },
+                            {
+                                "name": "1C infobase {#CLUSTER_LABEL}:{#NAME} duration-last-5min-dbms",
+                                "type": "DEPENDENT",
+                                "key": "infobase[{#CLUSTER_LABEL}:{#NAME},duration-last-5min-dbms]",
+                                "delay": "0",
+                                "history": "30d",
+                                "description": "\u0412\u0440\u0435\u043c\u044f \u0432\u044b\u0437\u043e\u0432\u043e\u0432 \u0421\u0423\u0411\u0414 (5 \u043c\u0438\u043d.)",
+                                "applications": [
+                                    {
+                                        "name": "1\u0441.cluster.infobases"
+                                    }
+                                ],
+                                "application_prototypes": [
+                                    {
+                                        "name": "1C cluster {#CLUSTER_LABEL} infobases"
+                                    },
+                                    {
+                                        "name": "1C infobase {#CLUSTER_LABEL}:{#NAME}"
+                                    }
+                                ],
+                                "preprocessing": [
+                                    {
+                                        "type": "JSONPATH",
+                                        "parameters": [
+                                            "$[?(@.infobase== \"{#INFOBASE}\")][\"duration-last-5min-dbms\"].sum()"
+                                        ],
+                                        "error_handler": "CUSTOM_VALUE",
+                                        "error_handler_params": "0"
+                                    }
+                                ],
+                                "master_item": {
+                                    "key": "session[{$HIRAC_ADDRESS},list]"
+                                }
+                            },
+                            {
+                                "name": "1C infobase {#CLUSTER_LABEL}:{#NAME} duration-last-5min",
+                                "type": "DEPENDENT",
+                                "key": "infobase[{#CLUSTER_LABEL}:{#NAME},duration-last-5min]",
+                                "delay": "0",
+                                "history": "30d",
+                                "description": "\u0412\u0440\u0435\u043c\u044f \u0432\u044b\u0437\u043e\u0432\u043e\u0432 (5 \u043c\u0438\u043d.)",
+                                "applications": [
+                                    {
+                                        "name": "1\u0441.cluster.infobases"
+                                    }
+                                ],
+                                "application_prototypes": [
+                                    {
+                                        "name": "1C cluster {#CLUSTER_LABEL} infobases"
+                                    },
+                                    {
+                                        "name": "1C infobase {#CLUSTER_LABEL}:{#NAME}"
+                                    }
+                                ],
+                                "preprocessing": [
+                                    {
+                                        "type": "JSONPATH",
+                                        "parameters": [
+                                            "$[?(@.infobase== \"{#INFOBASE}\")][\"duration-last-5min\"].sum()"
+                                        ]
+                                    }
+                                ],
+                                "master_item": {
+                                    "key": "session[{$HIRAC_ADDRESS},list]"
+                                }
+                            },
+                            {
+                                "name": "1C infobase {#CLUSTER_LABEL}:{#NAME} memory-current",
+                                "type": "DEPENDENT",
+                                "key": "infobase[{#CLUSTER_LABEL}:{#NAME},memory-current]",
+                                "delay": "0",
+                                "history": "30d",
+                                "units": "B",
+                                "description": "\u041f\u0430\u043c\u044f\u0442\u044c (\u0442\u0435\u043a\u0443\u0449\u0430\u044f)",
+                                "applications": [
+                                    {
+                                        "name": "1\u0441.cluster.infobases"
+                                    }
+                                ],
+                                "application_prototypes": [
+                                    {
+                                        "name": "1C cluster {#CLUSTER_LABEL} infobases"
+                                    },
+                                    {
+                                        "name": "1C infobase {#CLUSTER_LABEL}:{#NAME}"
+                                    }
+                                ],
+                                "preprocessing": [
+                                    {
+                                        "type": "JSONPATH",
+                                        "parameters": [
+                                            "$[?(@.infobase== \"{#INFOBASE}\")][\"memory-current\"].sum()"
+                                        ]
+                                    }
+                                ],
+                                "master_item": {
+                                    "key": "session[{$HIRAC_ADDRESS},list]"
+                                }
+                            },
+                            {
+                                "name": "1C infobase {#CLUSTER_LABEL}:{#NAME} memory-total",
+                                "type": "DEPENDENT",
+                                "key": "infobase[{#CLUSTER_LABEL}:{#NAME},memory-total]",
+                                "delay": "0",
+                                "history": "30d",
+                                "units": "B",
+                                "description": "\u041f\u0430\u043c\u044f\u0442\u044c (\u0432\u0441\u0435\u0433\u043e)",
+                                "applications": [
+                                    {
+                                        "name": "1\u0441.cluster.infobases"
+                                    }
+                                ],
+                                "application_prototypes": [
+                                    {
+                                        "name": "1C cluster {#CLUSTER_LABEL} infobases"
+                                    },
+                                    {
+                                        "name": "1C infobase {#CLUSTER_LABEL}:{#NAME}"
+                                    }
+                                ],
+                                "preprocessing": [
+                                    {
+                                        "type": "JSONPATH",
+                                        "parameters": [
+                                            "$[?(@.infobase== \"{#INFOBASE}\")][\"memory-total\"].sum()"
+                                        ]
+                                    }
+                                ],
+                                "master_item": {
+                                    "key": "session[{$HIRAC_ADDRESS},list]"
+                                }
+                            },
+                            {
+                                "name": "1C infobase {#CLUSTER_LABEL}:{#NAME} session count",
+                                "type": "DEPENDENT",
+                                "key": "infobase[{#CLUSTER_LABEL}:{#NAME},session-count]",
+                                "delay": "0",
+                                "history": "30d",
+                                "description": "\u041a\u043e\u043b\u0438\u0447\u0435\u0441\u0442\u0432\u043e \u0441\u0435\u0430\u043d\u0441\u043e\u0432",
+                                "applications": [
+                                    {
+                                        "name": "1\u0441.cluster.infobases"
+                                    }
+                                ],
+                                "application_prototypes": [
+                                    {
+                                        "name": "1C cluster {#CLUSTER_LABEL} infobases"
+                                    },
+                                    {
+                                        "name": "1C infobase {#CLUSTER_LABEL}:{#NAME}"
+                                    }
+                                ],
+                                "preprocessing": [
+                                    {
+                                        "type": "JSONPATH",
+                                        "parameters": [
+                                            "$[?(@.infobase== \"{#INFOBASE}\")].count.sum()"
+                                        ]
+                                    }
+                                ],
+                                "master_item": {
+                                    "key": "session[{$HIRAC_ADDRESS},list]"
+                                }
+                            }
+                        ],
+                        "master_item": {
+                            "key": "infobase[{$HIRAC_ADDRESS},list]"
+                        },
+                        "lld_macro_paths": [
+                            {
+                                "lld_macro": "{#CLUSTER_LABEL}",
+                                "path": "$[\"cluster-label\"]"
+                            },
+                            {
+                                "lld_macro": "{#INFOBASE}",
+                                "path": "$.infobase"
+                            },
+                            {
+                                "lld_macro": "{#NAME}",
+                                "path": "$.name"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "get process",
+                        "type": "DEPENDENT",
+                        "key": "process[{#CLUSTER_LABEL}:{$PORT}]",
+                        "delay": "0",
+                        "lifetime": "10d",
+                        "item_prototypes": [
+                            {
+                                "name": "1C process {#CLUSTER_LABEL}:{#PORT} available-perfomance",
+                                "type": "DEPENDENT",
+                                "key": "process[{#CLUSTER_LABEL}:{#PORT},available-perfomance]",
+                                "delay": "0",
+                                "history": "30d",
+                                "description": "\u0414\u043e\u0441\u0442\u0443\u043f\u043d\u0430\u044f \u043f\u0440\u043e\u0438\u0437\u0432\u043e\u0434\u0438\u0442\u0435\u043b\u044c\u043d\u043e\u0441\u0442\u044c \u043f\u0440\u043e\u0446\u0435\u0441\u0441\u0430",
+                                "applications": [
+                                    {
+                                        "name": "1\u0441.cluster.processes"
+                                    }
+                                ],
+                                "application_prototypes": [
+                                    {
+                                        "name": "1C cluster {#CLUSTER_LABEL} processes"
+                                    },
+                                    {
+                                        "name": "1C process {#CLUSTER_LABEL}:{#PORT}"
+                                    }
+                                ],
+                                "preprocessing": [
+                                    {
+                                        "type": "JSONPATH",
+                                        "parameters": [
+                                            "$[?(@.process== \"{#PROCESS}\")][\"available-perfomance\"].first()"
+                                        ]
+                                    }
+                                ],
+                                "master_item": {
+                                    "key": "process[{$HIRAC_ADDRESS},list]"
+                                }
+                            },
+                            {
+                                "name": "1C process {#CLUSTER_LABEL}:{#PORT} avg-call-time",
+                                "type": "DEPENDENT",
+                                "key": "process[{#CLUSTER_LABEL}:{#PORT},avg-call-time]",
+                                "delay": "0",
+                                "history": "30d",
+                                "value_type": "FLOAT",
+                                "description": "\u0412\u0440\u0435\u043c\u044f \u043e\u0431\u0441\u043b\u0443\u0436\u0438\u0432\u0430\u043d\u0438\u044f \u043f\u0440\u043e\u0446\u0435\u0441\u0441\u043e\u043c \u043e\u0434\u043d\u043e\u0433\u043e \u043a\u043b\u0438\u0435\u043d\u0442\u0441\u043a\u043e\u0433\u043e \u043e\u0431\u0440\u0430\u0449\u0435\u043d\u0438\u044f",
+                                "applications": [
+                                    {
+                                        "name": "1\u0441.cluster.processes"
+                                    }
+                                ],
+                                "application_prototypes": [
+                                    {
+                                        "name": "1C cluster {#CLUSTER_LABEL} processes"
+                                    },
+                                    {
+                                        "name": "1C process {#CLUSTER_LABEL}:{#PORT}"
+                                    }
+                                ],
+                                "preprocessing": [
+                                    {
+                                        "type": "JSONPATH",
+                                        "parameters": [
+                                            "$[?(@.process== \"{#PROCESS}\")][\"avg-call-time\"].first()"
+                                        ]
+                                    }
+                                ],
+                                "master_item": {
+                                    "key": "process[{$HIRAC_ADDRESS},list]"
+                                }
+                            },
+                            {
+                                "name": "1C process {#CLUSTER_LABEL}:{#PORT} capacity",
+                                "type": "DEPENDENT",
+                                "key": "process[{#CLUSTER_LABEL}:{#PORT},capacity]",
+                                "delay": "0",
+                                "history": "30d",
+                                "description": "\u041f\u043e\u0442\u0435\u043d\u0446\u0438\u0430\u043b \u043f\u0440\u043e\u0446\u0435\u0441\u0441\u0430",
+                                "applications": [
+                                    {
+                                        "name": "1\u0441.cluster.processes"
+                                    }
+                                ],
+                                "application_prototypes": [
+                                    {
+                                        "name": "1C cluster {#CLUSTER_LABEL} processes"
+                                    },
+                                    {
+                                        "name": "1C process {#CLUSTER_LABEL}:{#PORT}"
+                                    }
+                                ],
+                                "preprocessing": [
+                                    {
+                                        "type": "JSONPATH",
+                                        "parameters": [
+                                            "$[?(@.process== \"{#PROCESS}\")].capacity.first()"
+                                        ]
+                                    }
+                                ],
+                                "master_item": {
+                                    "key": "process[{$HIRAC_ADDRESS},list]"
+                                }
+                            },
+                            {
+                                "name": "1C process {#CLUSTER_LABEL}:{#PORT} connections",
+                                "type": "DEPENDENT",
+                                "key": "process[{#CLUSTER_LABEL}:{#PORT},connections]",
+                                "delay": "0",
+                                "history": "30d",
+                                "description": "\u041a\u043e\u043b\u0438\u0447\u0435\u0441\u0442\u0432\u043e \u0441\u0435\u0430\u043d\u0441\u043e\u0432",
+                                "applications": [
+                                    {
+                                        "name": "1\u0441.cluster.processes"
+                                    }
+                                ],
+                                "application_prototypes": [
+                                    {
+                                        "name": "1C cluster {#CLUSTER_LABEL} processes"
+                                    },
+                                    {
+                                        "name": "1C process {#CLUSTER_LABEL}:{#PORT}"
+                                    }
+                                ],
+                                "preprocessing": [
+                                    {
+                                        "type": "JSONPATH",
+                                        "parameters": [
+                                            "$[?(@.process== \"{#PROCESS}\")].connections.first()"
+                                        ]
+                                    }
+                                ],
+                                "master_item": {
+                                    "key": "process[{$HIRAC_ADDRESS},list]"
+                                }
+                            },
+                            {
+                                "name": "1C process {#CLUSTER_LABEL}:{#PORT} is-enable",
+                                "type": "DEPENDENT",
+                                "key": "process[{#CLUSTER_LABEL}:{#PORT},is-enable]",
+                                "delay": "0",
+                                "history": "30d",
+                                "trends": "0",
+                                "value_type": "TEXT",
+                                "description": "\u041f\u0440\u0438\u0437\u043d\u0430\u043a \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u043d\u0438\u044f",
+                                "applications": [
+                                    {
+                                        "name": "1\u0441.cluster.processes"
+                                    }
+                                ],
+                                "application_prototypes": [
+                                    {
+                                        "name": "1C cluster {#CLUSTER_LABEL} processes"
+                                    },
+                                    {
+                                        "name": "1C process {#CLUSTER_LABEL}:{#PORT}"
+                                    }
+                                ],
+                                "preprocessing": [
+                                    {
+                                        "type": "JSONPATH",
+                                        "parameters": [
+                                            "$[?(@.process== \"{#PROCESS}\")][\"is-enable\"].first()"
+                                        ]
+                                    }
+                                ],
+                                "master_item": {
+                                    "key": "process[{$HIRAC_ADDRESS},list]"
+                                }
+                            },
+                            {
+                                "name": "1C process {#CLUSTER_LABEL}:{#PORT} memory-excess-time",
+                                "type": "DEPENDENT",
+                                "key": "process[{#CLUSTER_LABEL}:{#PORT},memory-excess-time]",
+                                "delay": "0",
+                                "history": "30d",
+                                "description": "\u0412\u0440\u0435\u043c\u044f \u043f\u0440\u0435\u0432\u044b\u0448\u0435\u043d\u0438\u044f \u043a\u0440\u0438\u0442\u0438\u0447\u0435\u0441\u043a\u043e\u0433\u043e \u043e\u0431\u044a\u0435\u043c\u0430 \u043f\u0430\u043c\u044f\u0442\u0438 \u043f\u0440\u043e\u0446\u0435\u0441\u0441\u0430",
+                                "applications": [
+                                    {
+                                        "name": "1\u0441.cluster.processes"
+                                    }
+                                ],
+                                "application_prototypes": [
+                                    {
+                                        "name": "1C cluster {#CLUSTER_LABEL} processes"
+                                    },
+                                    {
+                                        "name": "1C process {#CLUSTER_LABEL}:{#PORT}"
+                                    }
+                                ],
+                                "preprocessing": [
+                                    {
+                                        "type": "JSONPATH",
+                                        "parameters": [
+                                            "$[?(@.process== \"{#PROCESS}\")][\"memory-excess-time\"].first()"
+                                        ]
+                                    }
+                                ],
+                                "master_item": {
+                                    "key": "process[{$HIRAC_ADDRESS},list]"
+                                }
+                            },
+                            {
+                                "name": "1C process {#CLUSTER_LABEL}:{#PORT} memory-size",
+                                "type": "DEPENDENT",
+                                "key": "process[{#CLUSTER_LABEL}:{#PORT},memory-size]",
+                                "delay": "0",
+                                "history": "30d",
+                                "units": "B",
+                                "description": "\u041e\u0431\u044a\u0435\u043c \u043f\u0430\u043c\u044f\u0442\u0438 \u043f\u0440\u043e\u0446\u0435\u0441\u0441\u0430",
+                                "applications": [
+                                    {
+                                        "name": "1\u0441.cluster.processes"
+                                    }
+                                ],
+                                "application_prototypes": [
+                                    {
+                                        "name": "1C cluster {#CLUSTER_LABEL} processes"
+                                    },
+                                    {
+                                        "name": "1C process {#CLUSTER_LABEL}:{#PORT}"
+                                    }
+                                ],
+                                "preprocessing": [
+                                    {
+                                        "type": "JSONPATH",
+                                        "parameters": [
+                                            "$[?(@.process== \"{#PROCESS}\")][\"memory-size\"].first()"
+                                        ]
+                                    },
+                                    {
+                                        "type": "MULTIPLIER",
+                                        "parameters": [
+                                            "1024"
+                                        ]
+                                    }
+                                ],
+                                "master_item": {
+                                    "key": "process[{$HIRAC_ADDRESS},list]"
+                                }
+                            }
+                        ],
+                        "master_item": {
+                            "key": "process[{$HIRAC_ADDRESS},list]"
+                        },
+                        "lld_macro_paths": [
+                            {
+                                "lld_macro": "{#CLUSTER_LABEL}",
+                                "path": "$[\"cluster-label\"]"
+                            },
+                            {
+                                "lld_macro": "{#PORT}",
+                                "path": "$.port"
+                            },
+                            {
+                                "lld_macro": "{#PROCESS}",
+                                "path": "$.process"
+                            }
+                        ]
+                    }
+                ],
+                "httptests": [
+                    {
+                        "name": "HiRAC healthcheck",
+                        "application": {
+                            "name": "HiRAC healthcheck"
+                        },
+                        "attempts": "3",
+                        "steps": [
+                            {
+                                "name": "Get status",
+                                "url": "http://{$HIRAC_HOST}:{$HIRAC_PORT}"
+                            },
+                            {
+                                "name": "Get processes",
+                                "url": "http://{$HIRAC_HOST}:{$HIRAC_PORT}/process/list"
+                            },
+                            {
+                                "name": "Get infobases",
+                                "url": "http://{$HIRAC_HOST}:{$HIRAC_PORT}/infobase/list",
+                                "follow_redirects": "NO"
+                            },
+                            {
+                                "name": "Get clusters",
+                                "url": "http://{$HIRAC_HOST}:{$HIRAC_PORT}/cluster/list",
+                                "follow_redirects": "NO"
+                            },
+                            {
+                                "name": "Get sessions",
+                                "url": "http://{$HIRAC_HOST}:{$HIRAC_PORT}/session/list"
+                            }
+                        ]
+                    }
+                ],
+                "macros": [
+                    {
+                        "macro": "{$HIRAC_ADDRESS}",
+                        "value": "192.168.1.100:5005"
+                    }
+                ]
+            }
+        ]
+    }
+}
